@@ -1,4 +1,4 @@
-package com.back.domain.repository;
+package com.back.domain.post.post.repository;
 
 import com.back.domain.post.post.document.Post;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;

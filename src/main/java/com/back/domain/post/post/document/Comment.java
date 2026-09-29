@@ -8,24 +8,24 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
-
+@Document(indexName = "comments")
 @Data
-@Document(indexName = "posts")
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-public class Post extends BaseDocument<String> {
+public class Comment extends BaseDocument<String> {
 
-  @Field(type= FieldType.Text)
-  private String title;
-  @Field(type= FieldType.Text)
+  @Field(type = FieldType.Keyword)
+  private String postId;
+
+  @Field(type = FieldType.Text)
   private String content;
-  @Field(type= FieldType.Keyword)
+
+  @Field(type = FieldType.Keyword)
   private String author;
 
-  public Post(String title, String content, String author){
-    this.title = title;
+  public Comment(String postId, String content, String author) {
+    this.postId = postId;
     this.content = content;
     this.author = author;
   }
-
 }
