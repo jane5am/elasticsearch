@@ -1,4 +1,4 @@
-package com.back.domain.post.post.document;
+package com.back.domain.post.comment.document;
 
 import com.back.global.baseDocument.BaseDocument;
 import lombok.Data;

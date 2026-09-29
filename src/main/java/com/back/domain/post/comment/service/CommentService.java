@@ -1,10 +1,12 @@
 package com.back.domain.post.comment.service;
 
 import com.back.domain.post.comment.repository.CommentRepository;
-import com.back.domain.post.post.document.Comment;
+import com.back.domain.post.comment.document.Comment;
 import com.back.domain.post.post.document.Post;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -20,4 +22,7 @@ public class CommentService {
     return commentRepository.save(comment);
   }
 
+  public List<Comment> findAll() {
+    return commentRepository.findAll();
+  }
 }
