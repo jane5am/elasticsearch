@@ -31,6 +31,7 @@ dependencies {
   testImplementation(platform("org.testcontainers:testcontainers-bom:1.19.8"))
   testImplementation("org.testcontainers:junit-jupiter")
   testImplementation("org.testcontainers:testcontainers-elasticsearch")
+  implementation("org.springframework.boot:spring-boot-starter-validation")
 }
 
 tasks.withType<Test> {
