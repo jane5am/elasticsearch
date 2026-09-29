@@ -2,6 +2,7 @@ package com.back.domain.post.post.service;
 
 import com.back.domain.post.post.document.Post;
 import com.back.domain.repository.PostRepository;
+import com.back.global.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,9 @@ public class PostService {
   public List<Post> findAll() {
     return postRepository.findAll();
   }
+
+  public Post findById(String id) {
+    return postRepository.findById(id).orElseThrow(()->new NotFoundException("Post not found with id: " + id));
 
   public Optional<Post> findById(String id) {
     return postRepository.findById(id);
