@@ -1,5 +1,8 @@
 package com.back.domain.post.post.controller;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import com.back.domain.post.post.document.Post;
 import com.back.domain.post.post.service.PostService;
 import jakarta.validation.Valid;
@@ -8,8 +11,6 @@ import jakarta.validation.constraints.Size;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/posts")
@@ -40,9 +41,10 @@ public class PostController {
     return ResponseEntity.status(201).body(post);
   }
 
-  @RequestMapping
-  public List<Post> findAll(){
-    return postService.findAll();
+  public Page<Post> findAll(@RequestParam (defaultValue = "0") int page,
+                            @RequestParam (defaultValue = "10") int size) {
+    Pageable pageable = PageRequest.of(page, size);
+    return postService.findAll(pageable);
   }
 
   @RequestMapping("/{id}")

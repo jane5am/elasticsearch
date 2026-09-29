@@ -5,6 +5,8 @@ import com.back.domain.post.post.repository.PostRepository;
 import com.back.global.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -24,6 +26,10 @@ public class PostService {
 
   public List<Post> findAll() {
     return postRepository.findAll();
+  }
+
+  public Page<Post> findAll(Pageable pageable){
+    return postRepository.findAll(pageable);
   }
 
   public Post findById(String id) {

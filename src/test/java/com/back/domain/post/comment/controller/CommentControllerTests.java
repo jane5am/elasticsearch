@@ -235,4 +235,5 @@ public class CommentControllerTests extends BaseTest {
                     .contentType("application/json")
     ).andExpect(status().isNotFound());
   }
+
 }
